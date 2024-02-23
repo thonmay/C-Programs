@@ -1,0 +1,12 @@
+#include<stdio.h>
+
+int f(int x)
+{
+    return 2 * x;
+}
+
+int main()
+{
+    int res = f(5);
+    printf("%i", res);
+}
