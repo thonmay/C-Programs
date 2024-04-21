@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<string.h>
+
+
+char* reverse(char arr[], int size)
+{
+    for(int i = 0; i < size/2; ++i)
+    {
+        //Swapping the characters
+        char temp = arr[i];
+        arr[i] = arr[size - i - 1];
+        arr[size - i -1] = temp;
+    }
+
+    return arr;
+}
+
+int main()
+{
+    /* Create a function called `reverse()` that has a string parameter. The function should reverse the characters of the string locally. That is, the
+   function returns the result in the same memory area that it received as a parameter. For example, the characters of a palindrome string are not changed in the function. */
+
+   /*
+   Step 1: Taking Input 
+   Step 2: Creating the 'reverse' function
+   */
+
+    char str[20];
+    scanf("%s", &str);
+
+    printf("Result string: %s\n", reverse(str, strlen(str)) );
+
+
+}
