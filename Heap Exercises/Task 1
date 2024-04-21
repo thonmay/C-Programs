@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+    /*Write a program that asks the user for a text of up to 20 characters and  makes a copy of it. Make sure that the copy only uses as much memory space as is absolutely necessary.
+    Step 1: Taking the text from the user
+        Step 1.1: Allocationg 20 bytes of memory for the text array
+        Step 1.2: Taking the input using 'scanf'
+    Step 2: Making a copy of it
+    */
+
+
+    char text[20];
+    scanf("%s", &text);
+
+    char result[strlen(text) + 1];
+    
+    for(int i = 0; i < strlen(text) + 1; ++i)
+        result[i] = text[i];
+
+    printf("%s\n", result);
+    //printf("%d\n", sizeof(result));
+
+
+
+    
+}
