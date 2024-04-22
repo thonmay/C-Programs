@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<string.h>
+
+void reverse(char arr[], int size)
+{
+    char rstStr[size];
+    for(int i = 0; i < size; ++i)
+    {
+        rstStr[i] = arr[size - i -1];
+    }
+    rstStr[size] = '\0';
+
+    printf("%s\n", rstStr);
+}
+
+int main()
+{
+    /* Modify the previous `reverse()` function so that it does not replace the characters locally, but creates another string and returns with it.     Reserve the necessary memory dynamically! */
+
+    char str[20];
+    scanf("%s", &str);
+
+    printf("%s\n", str);
+    reverse(str, strlen(str));
+}
