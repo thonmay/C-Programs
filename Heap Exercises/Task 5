@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(int argc, char* argv[])
+{
+
+    /* Write a program that accepts a number as a command-line argument and reads as many words from the user as they enter. When you have entered them all, write the words in reverse order. Use an array. 
+    Step 1: Taking the number from the command line
+    Step 2: Allocationg memory address from the words
+    Step 3: Reading the words from the user 
+    */
+
+   //checking the number is given as a command line argument or not
+   if(argc != 2)
+   {
+        printf("Please enter the number of words :)");
+        return 1;
+   }
+
+   //converting the 
+   int num_of_words = atoi(argv[1]);
+
+   if(num_of_words <= 0)
+   {
+        printf("Please enter a positive number :)");
+        return 1;
+   }
+
+   //allocationg memory & reading input
+   char* words[num_of_words];
+
+   for(int i = 0; i < num_of_words; ++i)
+   {
+    words[i] = malloc(num_of_words * sizeof(char)); //allocating memory address for each word
+    scanf("%s", words[i]);                          //reading a word from the user
+   }
+
+    //Writing output in reverse order
+   for(int i = num_of_words -1; i >= 0; --i)
+   {
+        printf("%s\n", words[i]);
+        free(words[i]);         //freeing up memory 
+   }
+
+
+    
+
+}
