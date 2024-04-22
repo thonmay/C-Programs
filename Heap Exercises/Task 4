@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    /*Write a program that reads 5 words from the user and prints them in reverse order. Use an array
+        Step 1: Reading 5 words
+            Step 1.1: Creating an array of Character Pointer to store the address of the words
+            Steep 1.2: Taking the input using a for loop
+        Step 2: Printing them in reverse order
+    */
+
+   char* wordsPtr[5];
+   
+
+   for(int i = 0; i < 5; ++i)
+   {
+    wordsPtr[i] = malloc(sizeof(char) * 20);   //allocating memory(dynamically) for each element(word)
+    scanf("%s", wordsPtr[i]);                  //taking each word from the user
+   }
+
+   for(int i=4; i>= 0; --i)
+   {
+    printf("%s\t", wordsPtr[i]);
+    free(wordsPtr[i]);
+   }
+
+
+}
+
+
