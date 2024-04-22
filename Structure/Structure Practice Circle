@@ -1,0 +1,103 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<stdbool.h>
+
+struct Circle
+{
+    double x, y, radius;
+};
+
+struct Point
+{
+    double x, y;
+};
+
+//printing circle
+void printCircle(struct Circle c)
+{
+    printf("Our circle is: (%.2lf, %.2lf) & radius %.2lf \n", c.x, c.y, c.radius);
+}
+
+//Calculate the Area of a circle
+double area(struct Circle c)
+{
+    return 3.14 * c.radius * c.radius;
+}
+
+//Create a random Circle
+struct Circle createRandomCircle()
+{
+    struct Circle c;
+    c.x = rand() % 10;
+    c.y = rand() % 10;
+    c.radius = rand() % 8;
+    return c;
+}
+
+//Move the circle
+struct Circle moveCircle(struct Circle* c, int newX, int newY)
+{
+    c->x = newX;
+    c->y = newY;
+    return *c;
+}
+
+//Creat an array of circles
+struct Circle* createNCircles(int n)
+{
+    struct Circle* circles = malloc(n * sizeof(struct Circle));  //allocating memory in the Heap
+    for(int i = 0; i < n; ++i)
+        circles[i] = createRandomCircle();
+    return circles;
+}
+
+//Sum of the area of the circles
+double sumOfArea(struct Circle* c, int size)
+{
+    double result = 0;
+    for(int i =0; i < size; ++i)
+        result += area(c[i]);
+    return result;
+}
+
+//Checking whether a point is inside the circle or not
+bool isInside(struct Circle c,struct Point p)
+{
+    double distanc = pow(c.x - p.x , 2) + pow(c.y - p.y, 2);
+    return  distanc <= pow(c.radius, 2);
+}
+
+
+int main()
+{
+    /*
+    1. Create my own Type(Circle)
+    2. 
+    */
+
+   struct Circle c;
+   struct Point p;
+
+   c.x = 0;
+   c.y = 0;
+   c.radius = 5;
+   p.x = 3;
+   p.y = 3;
+
+   printf("Our circle is: (%.2lf, %.2lf) & radius %.2lf \n", c.x, c.y, c.radius);
+   printf("The area of the circle is: %.2lf\n", area(c));
+   printf("The moved circle is: (%.2lf, %.2lf)\n", moveCircle(&c, 4, 7));
+
+    struct Circle* k = createNCircles(5);
+    for(int i=0; i<5; ++i)
+    {
+        printCircle(p[i]);
+    }
+
+   printf("The sum of the area of the circles are: %.3lf\n", sumOfArea(k, 5));
+   free(k);
+
+   printf("Is the point inside the circle? %d", isInside(c, p));
+
+}
