@@ -1,0 +1,21 @@
+#include<stdio.h>
+
+int main()
+{
+    //Change the value of a pointer through a pointer to a pointer. Then change the value pointed by the pointed pointer as well!
+    int x = 42;
+    int y = 45;
+    int* p = &x;
+    int* py = &y;
+
+    int** pp = &p;
+
+    int** pp = &p;
+    *pp = py;
+    **pp = 16;
+
+    printf("%d\n", p);
+    printf("%d\n", *p);
+
+
+}
