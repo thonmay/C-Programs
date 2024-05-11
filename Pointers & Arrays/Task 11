@@ -1,0 +1,32 @@
+#include<stdio.h>
+
+int* max(int arr[], int size)
+{
+    int* max = &arr[0];
+    for(int i=1; i < size; ++i)
+        if(arr[i] > *max)
+            max = &arr[i];
+    return max;
+}
+
+int maxInd(int arr[], int size)
+{
+    int maxInd = 0;
+    for(int i=1; i < size; ++i)
+        if(arr[i] > arr[maxInd])
+            maxInd = i;
+    return maxInd;
+}
+
+    /*Write a function that returns a pointer to the maximum element of an array received as a parameter. 
+        What is the advantage and disadvantage of this compared to returning an index? */
+int main()
+{
+    int arr[] = {4, 7, 5, 9, 16};
+    int len = sizeof(arr) / sizeof(arr[3]);
+
+    int* maxi = max(arr, len/2);
+    int maxIndex = maxInd(arr, len/2);
+    printf("Max is: %d", *maxi);
+    printf("\nMax index is: %d and Max value is: %d\n", maxIndex, arr[maxIndex]);
+}
