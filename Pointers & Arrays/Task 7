@@ -1,0 +1,27 @@
+#include<stdio.h>
+
+int* max(int arr[], int size)
+{
+    int* max = &arr[0];
+    for(int i=1; i < size; ++i)
+        if(arr[i] > *max)
+            max = &arr[i];
+    return max;
+}
+
+int* pp()
+{
+    int x = 42;
+    return &x;
+}
+
+int main()
+{
+    int arr[] = {4, 7, 5, 9, 16};
+    int len = sizeof(arr) / sizeof(arr[3]);
+
+    int* maxi = max(arr, len);
+    printf("Max is: %d", *maxi);
+    printf("Max is: %d", *pp());
+
+}
